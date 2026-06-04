@@ -32,13 +32,38 @@ body {
 
 .logo {
     font-size: 40px;
-    opacity: 0.8;
+    opacity: 1;
+    mix-blend-mode: normal;
 }
 
 img.logo {
     width: 100px;
     height: 100px;
     object-fit: contain;
+    opacity: 1;
+    filter: none;
+    -webkit-filter: none;
+    mix-blend-mode: normal;
+    background: transparent;
+}
+
+/* Ensure logos on game and end screens render identically */
+.game-page .logo,
+.end-page .logo,
+.game-page img.logo,
+.end-page img.logo {
+    opacity: 1 !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    mix-blend-mode: normal !important;
+    background-color: #ffffff !important;
+    isolation: isolate;
+}
+
+img.logo {
+    filter: none;
+    -webkit-filter: none;
+    image-rendering: auto;
 }
 
 /* ========== START PAGE ========== */
@@ -557,8 +582,92 @@ img.logo {
         left: 10px;
         right: 10px;
     }
+}
+
+
+@media (max-width: 600px) {
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .start-page,
+    .game-page,
+    .end-page {
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    .start-container,
+    .end-container {
+        max-height: calc(100vh - 18px);
+        padding: 16px 14px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .game-page {
+        padding: 6px 8px;
+    }
+
+    .game-container {
+        height: calc(100vh - 16px);
+        max-height: calc(100vh - 16px);
+        padding: 40px 14px 14px;
+    }
+
+    .logo-corners {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+    }
 
     .logo {
-        font-size: 30px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .jerry-can-image {
+        max-width: 300px;
+        margin: 10px auto;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .main-image {
+        max-width: 100%;
+        max-height: 48vh;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .result-title {
+        font-size: 1.8em;
+    }
+
+    .final-score {
+        font-size: 2.4em;
+    }
+
+    .final-score-box {
+        padding: 24px;
+        margin-bottom: 22px;
+    }
+
+    .fact-box {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .button-group {
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1em;
     }
 }

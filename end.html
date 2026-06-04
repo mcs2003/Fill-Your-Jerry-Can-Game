@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Your Jerry Can - Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="end-page">
+    <div class="logo-corners">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf043af00006400050c3c56/0x0.png" alt="Charity: water logo" class="logo logo-top-left">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf043af00006400050c3c56/0x0.png" alt="Charity: water logo" class="logo logo-top-right">
+    </div>
+    
+    <div class="container end-container">
+        <header class="header">
+            <h1 class="charity-header">Charity: Water</h1>
+        </header>
+        
+        <main class="end-main">
+            <h2 class="result-title">Game Complete!</h2>
+            
+            <div class="final-score-box">
+                <h3>Your Final Score:</h3>
+                <div class="final-score" id="finalScore">0</div>
+            </div>
+            
+            <div class="fact-box">
+                <h3>💧 Water Fact:</h3>
+                <p id="waterFact"></p>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-again" onclick="window.location.href='index.html'">Play Again</button>
+                <button class="btn btn-donate" onclick="window.open('https://www.charitywater.org/donate', '_blank')">Donate</button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

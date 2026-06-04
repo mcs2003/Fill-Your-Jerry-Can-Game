@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Your Jerry Can - Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="game-page">
+    <div class="logo-corners">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf043af00006400050c3c56/0x0.png" alt="Charity: water logo" class="logo logo-top-left">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/4bf043af00006400050c3c56/0x0.png" alt="Charity: water logo" class="logo logo-top-right">
+    </div>
+    
+    <div class="game-container">
+        <!-- Timer -->
+        <div class="timer-section">
+            <h2>Time Left: <span id="timer">30</span>s</h2>
+        </div>
+        
+        <!-- Left and Right Yellow Bars -->
+        <div class="side-bar left-bar"></div>
+        <div class="side-bar right-bar"></div>
+        
+        <!-- Main Game Area -->
+        <div class="game-area">
+            <div class="score-display">
+                <h3>Score: <span id="score">0</span></h3>
+            </div>
+            
+            <!-- Water Animation Area -->
+            <div class="water-animation-container" id="waterAnimationContainer">
+                <div class="water-drops"></div>
+            </div>
+            
+            <!-- Jerry Can -->
+            <div class="jerry-can-game">
+                <div class="can-body">
+                    <div class="can-water" id="canWater"></div>
+                    <div class="can-overflow"></div>
+                </div>
+                <div class="can-handle"></div>
+            </div>
+            
+            <!-- Collect Button -->
+            <button class="btn btn-collect" id="collectBtn">Collect!</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

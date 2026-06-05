@@ -21,7 +21,7 @@
             <h2 class="game-title">Fill Your Jerry Can</h2>
             
             <div class="jerry-can-image">
-                <img src="https://cdn2.dropmarkusercontent.com/52043/d7449ee483985720ae2ff75e187daeb1e680c02acb66f1c58e31218bb9c53ec2/cw_Selects_4x5_10.jpg?Expires=1780611456&Signature=NJ2C6PWuz4W4me0vo3WniTZHyZPYSP3TOEomrPEdS3NA2OaIBMzYg5TBS~TbsJwug-3T7e8ABgYapPTNBMnw8kEtIXFeDAkMKbqc3vxpxx6981-kGz8rX90LXUJ6DdiJW-inuybfK03zoMdPCOJ7LjOXq37dH8r3IKSGhGaSNjA6GRrav17YGn0PaSTAkNbSCBbo6PPoFM77kQv~Pl~BGc95tjevIGDtoMX5Z60CW6qdkYs9Dz~kBmHPeqIIsKFejC0Wuv6k230n6Ra69~GVwnlp7dVI~qG50V4A0KtVZ1EmSXLFLaOpOL~gdVyYD9IJ7k0uJvvqmYCF0KCytLHeuQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ" alt="Fill Your Jerry Can" class="main-image">
+                <img src="https://cdn2.dropmarkusercontent.com/52043/d7449ee483985720ae2ff75e187daeb1e680c02acb66f1c58e31218bb9c53ec2/cw_Selects_4x5_10.jpg?Expires=1780621144&Signature=aCrCW~M4NXW2XXmcWs3cljVhW4C3~yC9G2y8j8qnlw-GxwikDVfyk6BZ1JyWMpVXC4Rp0yc8cm57FdGzm5Rm7KvXnhemx4SlQj2BffU4KWnULDbYsFNdLetkqPj0rq0lFRmopq13ZehfAG08b2XG9LcIibnmlYStcqVvg~jTWjmRfyAwoMpSPJPEXzXrDYa5VJ3YQiGFxSlKjAipNezrwa8olQT~Oil1nFAGL6IBbPlxx4LkQaAvCrUcZgUggE7silinIgwsVDODHMZIq-dVP1e83DDv5MAm4bPAvzu1TcxgZjLnDoxZtTRVAuARqJwJ2f4JYdME~FZMTjohRI8Y-Q__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ" alt="Fill Your Jerry Can" class="main-image" loading="eager" decoding="sync" data-fallback-src="jerry-can.svg">
             </div>
             
             <p class="intro-text">Help bring clean water to communities in need. Click "Play Now" to start collecting!</p>
@@ -29,5 +29,57 @@
             <button class="btn btn-play" onclick="window.location.href='game.html'">Play Now</button>
         </main>
     </div>
+    <script>
+        (function() {
+            function updateFoldableHeight() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                const aspectRatio = height / width;
+
+                if (width <= 760 && aspectRatio >= 2.3) {
+                    document.documentElement.style.setProperty('--app-height', `${height}px`);
+                }
+            }
+
+            function ensureStartImageLoads() {
+                const image = document.querySelector('.main-image');
+                if (!image) return;
+
+                image.loading = 'eager';
+                image.decoding = 'sync';
+                image.style.visibility = 'visible';
+
+                image.addEventListener('error', function() {
+                    if (!this.dataset.fallbackApplied) {
+                        this.dataset.fallbackApplied = 'true';
+                        if (this.dataset.fallbackSrc) {
+                            this.src = this.dataset.fallbackSrc;
+                        }
+                    }
+                });
+
+                if (!image.complete || image.naturalWidth === 0) {
+                    const reloader = new Image();
+                    reloader.onload = function() {
+                        image.src = reloader.src;
+                    };
+                    reloader.onerror = function() {
+                        if (!image.dataset.fallbackApplied && image.dataset.fallbackSrc) {
+                            image.dataset.fallbackApplied = 'true';
+                            image.src = image.dataset.fallbackSrc;
+                        }
+                    };
+                    reloader.src = image.src;
+                }
+            }
+
+            updateFoldableHeight();
+            ensureStartImageLoads();
+            window.addEventListener('resize', updateFoldableHeight);
+            window.addEventListener('orientationchange', function() {
+                setTimeout(updateFoldableHeight, 120);
+            });
+        })();
+    </script>
 </body>
 </html>

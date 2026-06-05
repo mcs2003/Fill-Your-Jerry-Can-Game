@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD254" />
+      <stop offset="100%" stop-color="#E3A800" />
+    </linearGradient>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8CD7FF" />
+      <stop offset="100%" stop-color="#0088CC" />
+    </linearGradient>
+  </defs>
+  <rect width="360" height="360" rx="36" ry="36" fill="#fff"/>
+  <path d="M108 92 h144 a24 24 0 0 1 24 24 v168 a24 24 0 0 1 -24 24 h-144 a24 24 0 0 1 -24 -24 v-168 a24 24 0 0 1 24 -24 z" fill="url(#bodyGradient)" stroke="#BB8A00" stroke-width="10"/>
+  <path d="M132 72 h96 a14 14 0 0 1 14 14 v22 h-124 v-22 a14 14 0 0 1 14 -14 z" fill="#333"/>
+  <rect x="232" y="82" width="42" height="20" rx="8" fill="#333"/>
+  <rect x="132" y="146" width="96" height="106" rx="16" fill="url(#waterGradient)" opacity="0.95"/>
+  <path d="M132 186 c22 -24 44 -24 66 0 s44 24 66 0" fill="none" stroke="#fff" stroke-width="8" opacity="0.8"/>
+  <path d="M132 216 c22 -18 44 -18 66 0 s44 18 66 0" fill="none" stroke="#fff" stroke-width="6" opacity="0.75"/>
+  <path d="M132 246 c22 -16 44 -16 66 0 s44 16 66 0" fill="none" stroke="#fff" stroke-width="6" opacity="0.75"/>
+  <path d="M132 276 c22 -12 44 -12 66 0 s44 12 66 0" fill="none" stroke="#fff" stroke-width="5" opacity="0.75"/>
+  <g opacity="0.5">
+    <ellipse cx="180" cy="66" rx="56" ry="18" fill="#fff"/>
+  </g>
+  <path d="M148 54 c12 -20 32 -20 44 0" fill="none" stroke="#333" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -16,6 +16,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: var(--app-height, 100vh);
 }
 
 /* Logo Corners */
@@ -69,7 +70,7 @@ img.logo {
 /* ========== START PAGE ========== */
 .start-page {
     background: linear-gradient(135deg, var(--charity-yellow) 0%, #FFD700 100%);
-    min-height: 100vh;
+    min-height: var(--app-height, 100vh);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,6 +120,20 @@ img.logo {
     width: 100%;
     height: auto;
     display: block;
+}
+
+@media (max-width: 760px) and (orientation: portrait) and (min-aspect-ratio: 23/10) {
+    .start-page {
+        min-height: var(--app-height, 100vh);
+    }
+
+    .jerry-can-image {
+        max-width: 92%;
+    }
+
+    .main-image {
+        max-height: 56vh;
+    }
 }
 
 .intro-text {
@@ -669,5 +684,29 @@ img.logo {
         width: 100%;
         padding: 12px 0;
         font-size: 1em;
+    }
+}
+
+@media (max-width: 760px) and (orientation: portrait) and (min-aspect-ratio: 23/10) {
+    html,
+    body {
+        min-height: var(--app-height, 100vh);
+    }
+
+    .start-page,
+    .game-page,
+    .end-page {
+        min-height: var(--app-height, 100vh);
+        height: var(--app-height, 100vh);
+    }
+
+    .start-container,
+    .end-container {
+        max-height: calc(var(--app-height, 100vh) - 18px);
+        overflow: visible;
+    }
+
+    .main-image {
+        max-height: 58vh;
     }
 }
